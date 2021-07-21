@@ -2,7 +2,7 @@ import argparse
 import time
 from pathlib import Path
 
-import rospy
+# import rospy
 
 import sys
 sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
@@ -21,14 +21,14 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 from std_msgs.msg import String
 
 
-global opt
-manipulation_cmd = ["grasp","img"]
+# global opt
+# manipulation_cmd = ["grasp","img"]
 
-def start_detect(data):
-    rospy.loginfo("detecting_node: start detect")
-    detect(opt)
-    rospy.loginfo("detecting_node: detect complete, transfer result to grasping node")
-    rospy.loginfo("detecting_node: then wait for next detection")
+# def start_detect(data):
+#     rospy.loginfo("detecting_node: start detect")
+#     detect(opt)
+#     rospy.loginfo("detecting_node: detect complete, transfer result to grasping node")
+#     rospy.loginfo("detecting_node: then wait for next detection")
 
 
 def detect(opt):
@@ -216,18 +216,19 @@ if __name__ == '__main__':
     print(opt)
     check_requirements(exclude=('tensorboard', 'pycocotools', 'thop'))
 
-    # publisher and subscriber setting
-    rospy.loginfo("detecting_node: parameter setting")
-    navigation_pub = rospy.Publisher('/detected_num', String, queue_size=10)
-    manipulation_pub = rospy.Publisher('/grasp_or_img', String, queue_size=10)
-    rospy.Subscriber('/detect', String, start_detect)
+    # # publisher and subscriber setting
+    # rospy.loginfo("detecting_node: parameter setting")
+    # navigation_pub = rospy.Publisher('/detected_num', String, queue_size=10)
+    # manipulation_pub = rospy.Publisher('/grasp_or_img', String, queue_size=10)
+    # rospy.Subscriber('/detect', String, start_detect)
 
 
 
-    rospy.loginfo("detecting_node: wait for grasping node to transfer command")
+    # rospy.loginfo("detecting_node: wait for grasping node to transfer command")
     # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
+    # rospy.spin()
 
+    detect(opt)
 
     # with torch.no_grad():
     #     if opt.update:  # update all models (to fix SourceChangeWarning)
