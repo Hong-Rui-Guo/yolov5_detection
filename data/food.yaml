@@ -1,0 +1,22 @@
+# food delivery robot dataset - 120 training images
+# Train command: 
+# python3.8 train.py --img 440 --batch 16 --epochs 300 --data food.yaml --weights yolov5s.pt
+# Default dataset location is next to YOLOv5:
+#   /parent_folder
+#     /food
+#     /yolov5
+
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: ../food/images/  # 120 images
+val: ../food/images/  # 120 images
+
+# train: ../food/images/train/  # 96 images
+# val: ../food/images/train/  # 96 images
+# test: ../food/images/test/  # 24 images
+
+# number of classes
+nc: 6
+
+# class names
+names: [ 'digit_1', 'digit_2', 'digit_3', 'digit_4', 'digit_5', 'digit_6']
