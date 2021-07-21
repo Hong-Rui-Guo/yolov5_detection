@@ -4,8 +4,8 @@ from pathlib import Path
 
 # import rospy
 
-import sys
-sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+# import sys
+# sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import cv2
 import torch
 import torch.backends.cudnn as cudnn
@@ -18,7 +18,7 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
 from utils.plots import colors, plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
-from std_msgs.msg import String
+# from std_msgs.msg import String
 
 
 # global opt
