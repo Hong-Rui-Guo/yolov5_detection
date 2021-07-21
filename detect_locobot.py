@@ -134,11 +134,11 @@ def detect(opt):
                         c = int(cls)  # integer class
                         print('class:', end = '')
                         print(c)
-                        # publish message to navigating and grasping node
-                        rospy.loginfo("detecting_node: detect food")
-                        rospy.loginfo("detecting_node: publish message")
-                        manipulation_pub.publish('grasp')
-                        navigation_pub.publish(str(c))
+                        # # publish message to navigating and grasping node
+                        # rospy.loginfo("detecting_node: detect food")
+                        # rospy.loginfo("detecting_node: publish message")
+                        # manipulation_pub.publish('grasp')
+                        # navigation_pub.publish(str(c))
 
                         label = None if opt.hide_labels else (names[c] if opt.hide_conf else f'{names[c]} {conf:.2f}')
 
@@ -146,9 +146,9 @@ def detect(opt):
                         if opt.save_crop:
                             save_one_box(xyxy, im0s, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
 
-            else:
-                rospy.loginfo("detecting_node: no food")
-                manipulation_pub.publish('img')
+            # else:
+            #     rospy.loginfo("detecting_node: no food")
+            #     manipulation_pub.publish('img')
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
@@ -185,9 +185,9 @@ def detect(opt):
 
 
 if __name__ == '__main__':
-    # ros node
-    rospy.init_node('detecting_node', anonymous=True)
-    rospy.loginfo("detecting_node: parameter setting")
+    # # ros node
+    # rospy.init_node('detecting_node', anonymous=True)
+    # rospy.loginfo("detecting_node: parameter setting")
 
     # parameter setting
     parser = argparse.ArgumentParser()
